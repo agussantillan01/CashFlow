@@ -1,3 +1,7 @@
+using CashFlow.Core.Interfaces;
+using CashFlow.Infrastructure.Data;
+using CashFlow.Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace CashFlow.Api
 {
@@ -13,7 +17,11 @@ namespace CashFlow.Api
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddDbContext<CashFlowDbContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+
+            builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

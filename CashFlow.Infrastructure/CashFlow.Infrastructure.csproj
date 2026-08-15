@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CashFlow.Core\CashFlow.Core.csproj" />
-    <ProjectReference Include="..\CashFlow.services\CashFlow.services.csproj" />
+    <ProjectReference Include="..\CashFlow.services\CashFlow.Services.csproj" />
   </ItemGroup>
 
 </Project>

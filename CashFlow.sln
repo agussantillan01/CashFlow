@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashFlow.Infrastructure", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Legacy.UsersApi", "Legacy.UsersApi\Legacy.UsersApi.csproj", "{8589E64E-A807-498B-A634-6E1FB5377DBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashFlow.services", "CashFlow.services\CashFlow.services.csproj", "{D6966F4A-E3D7-43C0-899A-56CA97A0E730}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashFlow.Services", "CashFlow.services\CashFlow.Services.csproj", "{D6966F4A-E3D7-43C0-899A-56CA97A0E730}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
