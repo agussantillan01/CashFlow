@@ -1,0 +1,562 @@
+{
+  "info": {
+    "_postman_id": "90e3c3d7-543d-4742-9094-44f1bd761ec9",
+    "name": "Black Wallet Challenge - Agustin",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "29354490"
+  },
+  "item": [
+    {
+      "name": "1. Microservicio Core",
+      "item": [
+        {
+          "name": "Registrar ingreso",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"description\": \"Venta por mostrador\",\r\n  \"amount\": 20000.00\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7126/api/transactions/income",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "transactions",
+                "income"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Ingreso exitoso",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"description\": \"Venta por mostrador\",\r\n  \"amount\": 20000.00\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://localhost:7126/api/transactions/income",
+                  "protocol": "https",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "7126",
+                  "path": [
+                    "api",
+                    "transactions",
+                    "income"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 16 Aug 2026 20:38:57 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "Kestrel"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 5,\n    \"type\": \"Income\",\n    \"description\": \"Venta por mostrador\",\n    \"amount\": 20000,\n    \"date\": \"2026-08-16T17:38:54.861325-03:00\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Registrar gasto",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"description\": \"Venta por mostrador\",\r\n  \"amount\": 100000.00\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7126/api/transactions/expense",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "transactions",
+                "expense"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Gasto exitoso",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"description\": \"Venta por mostrador\",\r\n  \"amount\": 14000.00\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://localhost:7126/api/transactions/expense",
+                  "protocol": "https",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "7126",
+                  "path": [
+                    "api",
+                    "transactions",
+                    "expense"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 16 Aug 2026 20:40:02 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "Kestrel"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 6,\n    \"type\": \"Expense\",\n    \"description\": \"Venta por mostrador\",\n    \"amount\": 14000,\n    \"date\": \"2026-08-16T17:40:02.397841-03:00\"\n}"
+            },
+            {
+              "name": "Gasto error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"description\": \"Venta por mostrador\",\r\n  \"amount\": 100000.00\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://localhost:7126/api/transactions/expense",
+                  "protocol": "https",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "7126",
+                  "path": [
+                    "api",
+                    "transactions",
+                    "expense"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 16 Aug 2026 20:40:25 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "Kestrel"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"error\": \"Saldo insuficiente para registrar este gasto.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Balance",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/transactions/balance",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "transactions",
+                "balance"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Balance",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://localhost:7126/api/transactions/balance",
+                  "protocol": "https",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "7126",
+                  "path": [
+                    "api",
+                    "transactions",
+                    "balance"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 16 Aug 2026 20:18:33 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "Kestrel"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"totalIncome\": 44400.6,\n    \"totalExpense\": 400.6,\n    \"netBalance\": 44000\n}"
+            }
+          ]
+        },
+        {
+          "name": "History",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7126/api/transactions/history",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7126",
+              "path": [
+                "api",
+                "transactions",
+                "history"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "History",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://localhost:7126/api/transactions/history",
+                  "protocol": "https",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "7126",
+                  "path": [
+                    "api",
+                    "transactions",
+                    "history"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 16 Aug 2026 20:19:16 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "Kestrel"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": 4,\n        \"type\": 1,\n        \"description\": \"Venta por mostrador\",\n        \"amount\": 20000,\n        \"date\": \"2026-08-16T17:14:01.9144877\"\n    },\n    {\n        \"id\": 3,\n        \"type\": 2,\n        \"description\": \"Pago de luz\",\n        \"amount\": 400.6,\n        \"date\": \"2026-08-16T15:57:08.724\"\n    },\n    {\n        \"id\": 1,\n        \"type\": 1,\n        \"description\": \"Venta mostrador\",\n        \"amount\": 12200.3,\n        \"date\": \"2026-08-15T22:24:20.741\"\n    },\n    {\n        \"id\": 2,\n        \"type\": 1,\n        \"description\": \"Venta en la calle\",\n        \"amount\": 12200.3,\n        \"date\": \"2026-08-15T22:24:20.741\"\n    }\n]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "2. Legacy Users API",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"admin@blackwallet.com\",\r\n  \"password\": \"1234\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:44344/api/login",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "44344",
+              "path": [
+                "api",
+                "login"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Login exitoso",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"admin@blackwallet.com\",\r\n  \"password\": \"1234\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://localhost:44344/api/login",
+                  "protocol": "https",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "44344",
+                  "path": [
+                    "api",
+                    "login"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "-1"
+                },
+                {
+                  "key": "Server",
+                  "value": "Microsoft-IIS/10.0"
+                },
+                {
+                  "key": "X-AspNet-Version",
+                  "value": "4.0.30319"
+                },
+                {
+                  "key": "X-SourceFiles",
+                  "value": "=?UTF-8?B?QzpcRGV2ZWxvcFxCbGFjbGstd2FsbGV0XENhc2hGbG93XExlZ2FjeS5Vc2Vyc0FwaVxhcGlcbG9naW4=?="
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "ASP.NET"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 16 Aug 2026 20:48:23 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "70"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"token\": \"b622e75f891f4e479e3707643127e7f5\",\n    \"message\": \"Login exitoso\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "GetUser",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:44344/api/users/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "44344",
+              "path": [
+                "api",
+                "users",
+                "1"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Obtener usuario",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://localhost:44344/api/users/1",
+                  "protocol": "https",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "44344",
+                  "path": [
+                    "api",
+                    "users",
+                    "1"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "-1"
+                },
+                {
+                  "key": "Server",
+                  "value": "Microsoft-IIS/10.0"
+                },
+                {
+                  "key": "X-AspNet-Version",
+                  "value": "4.0.30319"
+                },
+                {
+                  "key": "X-SourceFiles",
+                  "value": "=?UTF-8?B?QzpcRGV2ZWxvcFxCbGFjbGstd2FsbGV0XENhc2hGbG93XExlZ2FjeS5Vc2Vyc0FwaVxhcGlcdXNlcnNcMQ==?="
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "ASP.NET"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 16 Aug 2026 20:49:25 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "63"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"Id\": 1,\n    \"Name\": \"Administrador\",\n    \"Email\": \"admin@blackwallet.com\"\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
