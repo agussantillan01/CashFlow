@@ -1,6 +1,8 @@
 using CashFlow.Core.Interfaces;
 using CashFlow.Infrastructure.Data;
 using CashFlow.Infrastructure.Repositories;
+using CashFlow.Services.Interfaces;
+using CashFlow.Services.services;
 using Microsoft.EntityFrameworkCore;
 
 namespace CashFlow.Api
@@ -22,6 +24,8 @@ namespace CashFlow.Api
 
 
             builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
+            builder.Services.AddScoped<ITransactionService, TransactionService>();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

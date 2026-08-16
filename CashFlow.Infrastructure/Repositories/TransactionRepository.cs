@@ -36,14 +36,14 @@ namespace CashFlow.Infrastructure.Repositories
         public async Task<decimal> GetTotalExpenseAsync()
         {
             return await _context.Transactions
-                                             .Where(t => t.Type == TransactionType.Income)
+                                             .Where(t => t.Type == TransactionType.Expense)
                                              .SumAsync(t => t.Amount);
         }
 
         public async Task<decimal> GetTotalIncomeAsync()
         {
             return await _context.Transactions
-                                             .Where(t => t.Type == TransactionType.Expense)
+                                             .Where(t => t.Type == TransactionType.Income)
                                              .SumAsync(t => t.Amount);
         }
     }
