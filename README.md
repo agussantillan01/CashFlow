@@ -13,7 +13,7 @@ CashFlow-master/
 ├── CashFlow.Api/                  # Capa de presentación — Thin Controllers + DI
 ├── CashFlow.Core/                 # Dominio — Entidades, DTOs, Enums, Interfaces
 ├── CashFlow.Infrastructure/       # Persistencia — EF Core, Repositorios, Migraciones
-├── CashFlow.services/             # Lógica de negocio — Servicios de aplicación
+├── CashFlow.Services/             # Lógica de negocio — Servicios de aplicación
 ├── Legacy.UsersApi/               # Bonus Track — API legacy en .NET Framework 4.8
 ├── Black Wallet Challenge - Agustin.postman_collection.json
 └── CashFlow.sln
@@ -26,7 +26,7 @@ CashFlow-master/
 | `CashFlow.Api` | Controladores HTTP, registro de dependencias, configuración de Swagger |
 | `CashFlow.Core` | Entidades del dominio (`Transaction`), DTOs, Enums, interfaces abstractas |
 | `CashFlow.Infrastructure` | `CashFlowDbContext`, `TransactionRepository`, migraciones EF Core |
-| `CashFlow.services` | `TransactionService` — orquesta validaciones y delegación al repositorio |
+| `CashFlow.Services` | `TransactionService` — orquesta validaciones y delegación al repositorio |
 
 ### Proyecto 2: Legacy Users API (.NET Framework 4.8)
 
@@ -107,6 +107,14 @@ La API legacy requiere IIS Express incluido en Visual Studio (no es compatible c
 
 **Desde Visual Studio:**  
 Click derecho sobre `Legacy.UsersApi` → `Set as Startup Project` → `F5`.
+
+El orquestador legacy quedará disponible en:
+
+| Protocolo | URL |
+|-----------|-----|
+| HTTPS | `https://localhost:44344` |
+
+> **Nota:** Al ser un proyecto web API nativo sin interfaz gráfica, navegar a la raíz devolverá un error `404 Not Found`. Esto es el comportamiento esperado. Las peticiones deben dirigirse directamente a los endpoints `/api/login` o `/api/users/{id}`.
 
 Para ejecutar ambos proyectos en simultáneo:
 1. Click derecho en la solución → `Set Startup Projects...`
