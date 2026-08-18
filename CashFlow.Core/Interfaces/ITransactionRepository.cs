@@ -13,5 +13,6 @@ namespace CashFlow.Core.Interfaces
         Task<IEnumerable<Transaction>> GetAllAsync();
         Task<decimal> GetTotalIncomeAsync();
         Task<decimal> GetTotalExpenseAsync();
+        Task<Transaction> AddExpenseAtomicAsync(Transaction transaction);
     }
 }

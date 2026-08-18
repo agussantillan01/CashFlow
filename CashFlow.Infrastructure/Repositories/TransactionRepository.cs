@@ -46,5 +46,39 @@ namespace CashFlow.Infrastructure.Repositories
                                              .Where(t => t.Type == TransactionType.Income)
                                              .SumAsync(t => t.Amount);
         }
+
+        public async Task<Transaction> AddExpenseAtomicAsync(Transaction transaction)
+        {
+            using var dbTransaction = await _context.Database.BeginTransactionAsync(System.Data.IsolationLevel.RepeatableRead);
+
+            try
+            {
+                var income = await _context.Transactions
+                    .Where(t => t.Type == TransactionType.Income)
+                    .SumAsync(t => t.Amount);
+
+                var expense = await _context.Transactions
+                    .Where(t => t.Type == TransactionType.Expense)
+                    .SumAsync(t => t.Amount);
+
+                var currentBalance = income - expense;
+
+                if (currentBalance < transaction.Amount)
+                {
+                    throw new System.InvalidOperationException("Saldo insuficiente para registrar este gasto.");
+                }
+
+                await _context.Transactions.AddAsync(transaction);
+                await _context.SaveChangesAsync();
+                await dbTransaction.CommitAsync();
+
+                return transaction;
+            }
+            catch
+            {
+                await dbTransaction.RollbackAsync();
+                throw;
+            }
+        }
     }
 }

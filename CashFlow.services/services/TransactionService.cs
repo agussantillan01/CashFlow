@@ -35,22 +35,15 @@ namespace CashFlow.Services.services
 
         public async Task<Transaction> AddExpenseAsync(CreateTransactionDto dto)
         {
-            var balance = await GetBalanceAsync();
-
-            if (balance.NetBalance < dto.Amount)
-            {
-                throw new InvalidOperationException("Saldo insuficiente para registrar este gasto.");
-            }
-
             var transaction = new Transaction
             {
                 Type = TransactionType.Expense,
                 Description = dto.Description,
                 Amount = dto.Amount,
-                Date = dto.Date ?? DateTime.Now
+                Date = dto.Date ?? DateTime.UtcNow 
             };
 
-            return await _repository.AddAsync(transaction);
+            return await _repository.AddExpenseAtomicAsync(transaction);
         }
 
         public async Task<BalanceDto> GetBalanceAsync()
